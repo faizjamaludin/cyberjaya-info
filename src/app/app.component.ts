@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faStar, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'cyberjaya-info-fe';
+  title: string = 'Cyberjaya Info';
+
+  // Icons
+  faStar = faStar;
+  searchIcon = faMagnifyingGlass
+
+  search = {
+    searchInput: '',
+  };
+
+  onSubmit() {
+
+  }
 }
