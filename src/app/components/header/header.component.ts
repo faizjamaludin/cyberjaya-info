@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,11 +11,11 @@ export class HeaderComponent implements OnInit {
 
   icon = faArrowRightToBracket;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void { }
 
   toLogin() {
-    console.log('Login');
+    this.router.navigateByUrl('/login');
   }
 }
