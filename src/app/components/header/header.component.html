@@ -17,7 +17,9 @@
                 </li>
                 <li><a href="#">Contact</a></li>
             </ul>
-            <app-button [iconName]="icon" [buttonText]="'Sign in'"></app-button>
+            <div class="loginBtn">
+                <app-button [iconName]="icon" [buttonText]="'Login'" (btnClick)="toLogin()"></app-button>
+            </div>
         </nav>
     </div>
 </header>

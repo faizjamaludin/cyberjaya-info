@@ -6,4 +6,5 @@ button {
     border-bottom: 3px solid var(--secondary-color);
     border-radius: 10px;
     font-size: 12px;
+    cursor: pointer;
 }

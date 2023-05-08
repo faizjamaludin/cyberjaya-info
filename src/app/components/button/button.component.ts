@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
@@ -16,10 +16,14 @@ export class ButtonComponent implements OnInit {
   // Button Text
   @Input() buttonText!: string;
 
+  @Output() btnClick = new EventEmitter();
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
+  onClick() {
+    this.btnClick.emit();
   }
 
 }

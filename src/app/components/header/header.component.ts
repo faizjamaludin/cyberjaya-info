@@ -12,7 +12,9 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
+  toLogin() {
+    console.log('Login');
   }
 }

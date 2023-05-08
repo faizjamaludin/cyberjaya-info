@@ -70,3 +70,7 @@ nav {
 .submenu li:hover {
     background-color: var(--secondary-color-20);
 }
+
+.loginBtn {
+    margin-left: 10px;
+}
