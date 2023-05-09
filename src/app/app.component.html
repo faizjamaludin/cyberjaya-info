@@ -1,11 +1,19 @@
-<div *ngIf="location.path() == '/login'; else elseBlock">
+<body
+  [ngStyle]="{
+    'min-height': '100vh',
+    display: 'flex',
+    'flex-direction': 'column'
+  }"
+>
+  <header>
     <app-header></app-header>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
-</div>
+  </header>
 
-<ng-template #elseBlock>
-    <app-header></app-header>
+  <article>
     <router-outlet></router-outlet>
+  </article>
+
+  <footer [ngStyle]="{ 'margin-top': 'auto' }">
     <app-footer></app-footer>
-</ng-template>
+  </footer>
+</body>

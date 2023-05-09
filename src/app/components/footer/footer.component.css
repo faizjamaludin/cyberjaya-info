@@ -1,43 +1,43 @@
 /* Footer */
 .footer-container {
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: row;
-    justify-content: space-around;
-    background: var(--bg-color);
-    padding: 20px;
-    margin-top: auto;
-    color: var(--primary-color);
-    box-shadow: 5px 3px 10px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  justify-content: space-around;
+  background: var(--bg-color);
+  padding: 20px;
+  margin: auto 0;
+  color: var(--primary-color);
+  box-shadow: 5px 3px 10px 2px rgba(0, 0, 0, 0.2);
 }
 
 .footer-container .logo {
-    width: 120px;
+  width: 120px;
 }
 
 .footer-container .useful-links {
-    width: 120px;
+  width: 120px;
 }
 
 .useful-links li {
-    list-style-type: none;
-    font-size: 12px;
+  list-style-type: none;
+  font-size: 12px;
 }
 
 .links-title {
-    color: var(--primary-color);
-    font-weight: 500;
+  color: var(--primary-color);
+  font-weight: 500;
 }
 
 .links-title span {
-    color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .footer-container .contact {
-    width: 120px;
+  width: 120px;
 }
 
 .contact-title {
-    color: var(--primary-color);
-    font-weight: 500;
+  color: var(--primary-color);
+  font-weight: 500;
 }
