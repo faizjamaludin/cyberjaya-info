@@ -6,6 +6,7 @@ import {
   faStar,
   faStarHalfStroke,
 } from '@fortawesome/free-solid-svg-icons';
+import { faStar as Star } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-restaurant',
@@ -20,4 +21,5 @@ export class RestaurantComponent {
   faEnvelope = faEnvelope;
   faStar = faStar;
   faStarHalfStroke = faStarHalfStroke;
+  regStar = Star;
 }
