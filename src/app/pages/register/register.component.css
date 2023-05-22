@@ -28,7 +28,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 70px 0;
+    padding: 50px 0;
     margin: 100px 0;
 }
 
@@ -48,7 +48,9 @@
     margin-top: 10px;
 }
 
-.login-form input[type=text] {
+.login-form input[type=text],
+.login-form input[type=password],
+.login-form input[type=email] {
     width: 20rem;
     height: 2rem;
     border: 1px solid var(--placeholder-color);
@@ -71,6 +73,19 @@
 .login-btn a {
     text-decoration: none;
     color: var(--primary-color);
+    font-size: 13px;
+}
+
+.message {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.message-box {
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: #d1e7dd;
+    color: #0a3622;
     font-size: 13px;
 }
 

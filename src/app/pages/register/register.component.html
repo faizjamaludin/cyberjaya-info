@@ -5,22 +5,34 @@
 
     <div class="box-right">
         <div class="login-form">
+
+            <ng-template [ngIf]="message !== null">
+                <div class="message">
+                    <div class="message-box">
+                        <p>{{ message }}</p>
+                    </div>
+                </div>
+            </ng-template>
+
             <h1>Register</h1>
-            <form (ngSubmit)="loginSubmit()" #loginForm="ngForm">
+            <!-- <p>{{message}}</p> -->
+            <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
                 <div class="form-group">
                     <label for="username">Full Name</label>
                     <input type="text" class="form-control" id="fullname" name="fullname"
-                        [(ngModel)]="credential.username" placeholder="Full Name">
+                        [(ngModel)]="formData.fullName" placeholder="Full Name">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" name="username"
-                        [(ngModel)]="credential.username" placeholder="Username">
-                    <span class="vl"></span>
+                        [(ngModel)]="formData.username" placeholder="Username">
+                    <label for="username">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="formData.email"
+                        placeholder="Email">
                     <label for="password">Password</label>
-                    <input type="text" class="form-control" id="password" name="password"
-                        [(ngModel)]="credential.password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password"
+                        [(ngModel)]="formData.password" placeholder="Password">
                     <label for="password">Confirm Password</label>
-                    <input type="text" class="form-control" id="cpassword" name="cpassword"
-                        [(ngModel)]="credential.password" placeholder="Confirm Password">
+                    <input type="password" class="form-control" id="cpassword" name="cpassword"
+                        [(ngModel)]="formData.cPassword" placeholder="Confirm Password">
                     <div class="login-btn">
                         <app-button [buttonText]="'Register'"></app-button>
                     </div>

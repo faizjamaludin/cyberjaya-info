@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-register',
@@ -6,12 +8,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  credential = {
+
+  message: string = '';
+
+  formData = {
+    fullName: '',
     username: '',
+    email: '',
     password: '',
+    cPassword: '',
   };
 
-  loginSubmit() {
+  constructor(private http: HttpClient) { }
 
+  capitalizeWords = (str: string) => {
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   }
+
+  onSubmit() {
+    const url = 'http://localhost:3001/users/';
+    this.http.post(url, this.formData).subscribe((response: any) => {
+      this.message = this.capitalizeWords(response.message);
+    });
+  }
+
+
 }
