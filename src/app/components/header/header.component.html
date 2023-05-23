@@ -18,11 +18,8 @@
         <li><a href="/contact">Contact</a></li>
       </ul>
       <div class="loginBtn">
-        <app-button
-          [iconName]="icon"
-          [buttonText]="'Login'"
-          (btnClick)="toLogin()"
-        ></app-button>
+        <!-- change app-button to profile image if user logged in based on jwt token in localstorage -->
+        <app-button [iconName]="icon" [buttonText]="'Login'" (btnClick)="toLogin()"></app-button>
       </div>
     </nav>
   </div>

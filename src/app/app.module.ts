@@ -15,6 +15,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
+import { ProfileComponent } from './pages/dashboard/profile/profile.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -38,7 +39,8 @@ const appRoute: Routes = [
     RegisterComponent,
     AboutComponent,
     ContactComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
