@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class RegisterComponent {
   }
 
   onSubmit() {
-    const url = 'http://localhost:3001/users/';
+    const url = 'http://localhost:3001/users';
     this.http.post(url, this.formData).subscribe((response: any) => {
       this.message = this.capitalizeWords(response.message);
     });

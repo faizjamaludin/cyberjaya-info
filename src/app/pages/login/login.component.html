@@ -9,12 +9,12 @@
             <form (ngSubmit)="loginSubmit()" #loginForm="ngForm">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username"
-                        [(ngModel)]="credential.username" placeholder="Username">
+                    <input type="text" class="form-control" id="username" name="username" [(ngModel)]="formData.email"
+                        placeholder="Username">
                     <span class="vl"></span>
                     <label for="password">Password</label>
-                    <input type="text" class="form-control" id="password" name="password"
-                        [(ngModel)]="credential.password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password"
+                        [(ngModel)]="formData.password" placeholder="Password">
                     <div class="login-btn">
                         <app-button [buttonText]="'Login'"></app-button>
                         <a href="/reset">Forgot password ?</a>
