@@ -1,19 +1,42 @@
-<body
-  [ngStyle]="{
-    'min-height': '100vh',
-    display: 'flex',
-    'flex-direction': 'column'
-  }"
->
-  <header>
-    <app-header></app-header>
-  </header>
+<!-- dashboard view -->
+<div *ngIf="isDashboardRoute()">
 
-  <article>
-    <router-outlet></router-outlet>
-  </article>
+  <body class="min-h-screen w-full flex flex-col">
+    <header>
+      <app-header></app-header>
+    </header>
 
-  <footer [ngStyle]="{ 'margin-top': 'auto' }">
-    <app-footer></app-footer>
-  </footer>
-</body>
+    <div class="content">
+      <nav>
+        <app-sidenav></app-sidenav>
+      </nav>
+
+      <article class="w-full">
+        <router-outlet></router-outlet>
+      </article>
+    </div>
+
+    <footer [ngStyle]="{ 'margin-top': 'auto' }">
+      <app-footer></app-footer>
+    </footer>
+  </body>
+</div>
+
+
+<!-- non dashboard view -->
+<div *ngIf="!isDashboardRoute()">
+
+  <body class="min-h-screen w-full flex flex-col">
+    <header>
+      <app-header></app-header>
+    </header>
+
+    <article>
+      <router-outlet></router-outlet>
+    </article>
+
+    <footer [ngStyle]="{ 'margin-top': 'auto' }">
+      <app-footer></app-footer>
+    </footer>
+  </body>
+</div>

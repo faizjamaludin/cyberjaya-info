@@ -19,6 +19,14 @@ export class RegisterComponent {
     cPassword: '',
   };
 
+  errorMsg = {
+    fullName: '',
+    username: '',
+    email: '',
+    password: '',
+    cPassword: '',
+  }
+
   constructor(private http: HttpClient) { }
 
   capitalizeWords = (str: string) => {
@@ -27,9 +35,37 @@ export class RegisterComponent {
 
   onSubmit() {
     const url = 'http://localhost:3001/users';
+
+    // validation
+
+    if (this.formData.fullName == "") {
+      this.errorMsg.fullName = "Please insert Full Name";
+    }
+
+    if (this.formData.username == "") {
+      this.errorMsg.username = "Please insert Username";
+    }
+
+    if (this.formData.email == "") {
+      this.errorMsg.email = "Please insert Email";
+    }
+
+    if (this.formData.password == "") {
+      this.errorMsg.password = "Please insert Password";
+    }
+
+    if (this.formData.password == "") {
+      this.errorMsg.cPassword = "Please insert Confirm Password";
+    }
+
+    if (this.formData.password !== this.formData.cPassword) {
+      this.errorMsg.password = "Password is not match";
+    }
+
     this.http.post(url, this.formData).subscribe((response: any) => {
       this.message = this.capitalizeWords(response.message);
     });
+
   }
 
 

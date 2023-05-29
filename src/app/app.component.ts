@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { faStar, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,13 @@ import { Location } from '@angular/common';
 })
 export class AppComponent {
   title: string = 'Cyberjaya Info';
+  path: any;
 
   //location path
-  constructor(public location: Location) { }
+  constructor(public location: Location, private router: Router) {
+    this.path = location.path();
+    console.log(this.path)
+  }
 
   // Icons
   faStar = faStar;
@@ -20,6 +25,10 @@ export class AppComponent {
   search = {
     searchInput: '',
   };
+
+  isDashboardRoute() {
+    return this.router.url.indexOf('/dashboard') !== -1;
+  }
 
   onSubmit() {
 
