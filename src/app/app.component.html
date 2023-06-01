@@ -2,11 +2,11 @@
 <div *ngIf="isDashboardRoute()">
 
   <body class="min-h-screen w-full flex flex-col">
-    <header>
+    <header class="z-40">
       <app-header></app-header>
     </header>
 
-    <div class="content">
+    <div class="flex min-h-full">
       <nav>
         <app-sidenav></app-sidenav>
       </nav>
@@ -16,7 +16,7 @@
       </article>
     </div>
 
-    <footer [ngStyle]="{ 'margin-top': 'auto' }">
+    <footer class="mt-auto">
       <app-footer></app-footer>
     </footer>
   </body>
@@ -35,7 +35,7 @@
       <router-outlet></router-outlet>
     </article>
 
-    <footer [ngStyle]="{ 'margin-top': 'auto' }">
+    <footer class="mt-auto">
       <app-footer></app-footer>
     </footer>
   </body>

@@ -17,6 +17,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { ProfileComponent } from './pages/dashboard/profile/profile.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ListingComponent } from './pages/dashboard/listing/listing.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,8 +26,9 @@ const appRoute: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'restaurant', component: RestaurantComponent },
+  { path: 'restaurant/:id', component: RestaurantComponent },
   { path: 'dashboard/profile', component: ProfileComponent },
+  { path: 'dashboard/listing', component: ListingComponent },
 
 ]
 
@@ -43,7 +45,8 @@ const appRoute: Routes = [
     ContactComponent,
     RestaurantComponent,
     ProfileComponent,
-    SidenavComponent
+    SidenavComponent,
+    ListingComponent
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@ export class AppComponent {
   //location path
   constructor(public location: Location, private router: Router) {
     this.path = location.path();
-    console.log(this.path)
+    // console.log(this.path)
   }
 
   // Icons

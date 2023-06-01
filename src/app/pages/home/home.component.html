@@ -184,143 +184,40 @@
                         class="text-secondary">Added</span>
                 </h2>
             </div>
-            <div class="flex justify-center items-center w-4/5">
-                <a href="/restaurant">
-                    <div
-                        class="flex flex-col cursor-pointer w-48 h-61 border-2 border-solid border-primary rounded-xl mt-5 ml-10 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-sm hover:transition-all">
-                        <div class="h-3/4 flex justify-center items-center"><img class="w-9/12 h-4/5 object-scale-down"
-                                src="assets/img/Taco_Bell.png" alt="">
-                        </div>
-                        <hr class="border border-solid border-primary">
-                        <div class="h-fit w-auto px-1 py-2.5">
-                            <div class="flex justify-between items-center w-full">
-                                <div class="header-title">
-                                    <p class="font-semibold text-primary text-base w-full">Taco Bell</p>
-                                </div>
-                                <div class="header-rating">
-                                    <p class="font-medium text-sm text-primary w-full"><fa-icon
-                                            [ngStyle]="{'color' : '#FFAB00' }" [icon]="faStar"></fa-icon> 4.6/5</p>
-                                </div>
-                            </div>
-                            <div class="content-location">
-                                <p class="text-sm text-primary">Cyberjaya</p>
-                            </div>
-                            <div class="content-category">
-                                <p class="text-xs text-placeholder">Homemade</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
 
-                <a href="/restaurant">
-                    <div
-                        class="flex flex-col cursor-pointer w-48 h-61 border-2 border-solid border-primary rounded-xl mt-5 ml-10 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-sm hover:transition-all">
-                        <div class="h-3/4 flex justify-center items-center"><img class="w-9/12 h-4/5 object-scale-down"
-                                src="assets/img/Taco_Bell.png" alt="">
-                        </div>
-                        <hr class="border border-solid border-primary">
-                        <div class="h-fit w-auto px-1 py-2.5">
-                            <div class="flex justify-between items-center w-full">
-                                <div class="header-title">
-                                    <p class="font-semibold text-primary text-base w-full">Taco Bell</p>
-                                </div>
-                                <div class="header-rating">
-                                    <p class="font-medium text-sm text-primary w-full"><fa-icon
-                                            [ngStyle]="{'color' : '#FFAB00' }" [icon]="faStar"></fa-icon> 4.6/5</p>
-                                </div>
-                            </div>
-                            <div class="content-location">
-                                <p class="text-sm text-primary">Cyberjaya</p>
-                            </div>
-                            <div class="content-category">
-                                <p class="text-xs text-placeholder">Homemade</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+            <!-- listing items -->
 
-                <a href="/restaurant">
-                    <div
-                        class="flex flex-col cursor-pointer w-48 h-61 border-2 border-solid border-primary rounded-xl mt-5 ml-10 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-sm hover:transition-all">
-                        <div class="h-3/4 flex justify-center items-center"><img class="w-9/12 h-4/5 object-scale-down"
-                                src="assets/img/Taco_Bell.png" alt="">
-                        </div>
-                        <hr class="border border-solid border-primary">
-                        <div class="h-fit w-auto px-1 py-2.5">
-                            <div class="flex justify-between items-center w-full">
-                                <div class="header-title">
-                                    <p class="font-semibold text-primary text-base w-full">Taco Bell</p>
-                                </div>
-                                <div class="header-rating">
-                                    <p class="font-medium text-sm text-primary w-full"><fa-icon
-                                            [ngStyle]="{'color' : '#FFAB00' }" [icon]="faStar"></fa-icon> 4.6/5</p>
-                                </div>
-                            </div>
-                            <div class="content-location">
-                                <p class="text-sm text-primary">Cyberjaya</p>
-                            </div>
-                            <div class="content-category">
-                                <p class="text-xs text-placeholder">Homemade</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+            <div class="flex justify-start items-center w-4/5">
 
-                <a href="/restaurant">
-                    <div
-                        class="flex flex-col cursor-pointer w-48 h-61 border-2 border-solid border-primary rounded-xl mt-5 ml-10 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-sm hover:transition-all">
-                        <div class="h-3/4 flex justify-center items-center"><img class="w-9/12 h-4/5 object-scale-down"
-                                src="assets/img/Taco_Bell.png" alt="">
-                        </div>
-                        <hr class="border border-solid border-primary">
-                        <div class="h-fit w-auto px-1 py-2.5">
-                            <div class="flex justify-between items-center w-full">
-                                <div class="header-title">
-                                    <p class="font-semibold text-primary text-base w-full">Taco Bell</p>
-                                </div>
-                                <div class="header-rating">
-                                    <p class="font-medium text-sm text-primary w-full"><fa-icon
-                                            [ngStyle]="{'color' : '#FFAB00' }" [icon]="faStar"></fa-icon> 4.6/5</p>
-                                </div>
+                <div *ngFor="let listing of listings">
+                    <a [href]="'/restaurant/' + listing._id">
+                        <div
+                            class="flex flex-col cursor-pointer w-48 h-61 border-2 border-solid border-primary rounded-xl mt-5 ml-10 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-sm hover:transition-all">
+                            <div class="h-3/4 flex justify-center items-center"><img
+                                    class="w-9/12 h-4/5 object-scale-down" src="assets/img/Taco_Bell.png" alt="">
                             </div>
-                            <div class="content-location">
-                                <p class="text-sm text-primary">Cyberjaya</p>
-                            </div>
-                            <div class="content-category">
-                                <p class="text-xs text-placeholder">Homemade</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="/restaurant">
-                    <div
-                        class="flex flex-col cursor-pointer w-48 h-61 border-2 border-solid border-primary rounded-xl mt-5 ml-10 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-sm hover:transition-all">
-                        <div class="h-3/4 flex justify-center items-center"><img class="w-9/12 h-4/5 object-scale-down"
-                                src="assets/img/Taco_Bell.png" alt="">
-                        </div>
-                        <hr class="border border-solid border-primary">
-                        <div class="h-fit w-auto px-1 py-2.5">
-                            <div class="flex justify-between items-center w-full">
-                                <div class="header-title">
-                                    <p class="font-semibold text-primary text-base w-full">Taco Bell</p>
+                            <hr class="border border-solid border-primary">
+                            <div class="h-fit w-auto px-1 py-2.5">
+                                <div class="flex justify-between items-center w-full">
+                                    <div class="header-title">
+                                        <p class="font-semibold text-primary text-base w-full">
+                                            {{listing.listing.list_name}}</p>
+                                    </div>
+                                    <div class="header-rating">
+                                        <p class="font-medium text-sm text-primary w-full"><fa-icon
+                                                [ngStyle]="{'color' : '#FFAB00' }" [icon]="faStar"></fa-icon> 4.6/5</p>
+                                    </div>
                                 </div>
-                                <div class="header-rating">
-                                    <p class="font-medium text-sm text-primary w-full"><fa-icon
-                                            [ngStyle]="{'color' : '#FFAB00' }" [icon]="faStar"></fa-icon> 4.6/5</p>
+                                <div class="content-location">
+                                    <p class="text-sm text-primary">Cyberjaya</p>
+                                </div>
+                                <div class="content-category">
+                                    <p class="text-xs text-placeholder">Homemade</p>
                                 </div>
                             </div>
-                            <div class="content-location">
-                                <p class="text-sm text-primary">Cyberjaya</p>
-                            </div>
-                            <div class="content-category">
-                                <p class="text-xs text-placeholder">Homemade</p>
-                            </div>
                         </div>
-                    </div>
-                </a>
-
-
+                    </a>
+                </div>
             </div>
             <div class="w-4/5 flex justify-end items-center mt-5"><a
                     class="text-sm font-normal text-primary no-underline hover:underline" href="">see more...</a></div>
@@ -331,9 +228,7 @@
 
         <div class="flex items-center justify-center flex-col w-full mt-20">
             <div class="w-4/5">
-                <h2 class="text-primary font-semibold underline decoration-2 decoration-primary">Recently <span
-                        class="text-secondary">Added</span>
-                </h2>
+                <h2 class="text-primary font-semibold underline decoration-2 decoration-primary">Events</h2>
             </div>
             <div class="flex justify-center items-center w-4/5">
                 <a href="/restaurant">

@@ -1,3 +1,63 @@
-<nav>
-    <div class="container"></div>
-</nav>
+<div class="flex w-full h-full justify-start items-center flex-col py-20">
+    <h1 class="flex w-11/12 text-3xl font-bold underline mb-20">
+        Profile
+    </h1>
+
+    <div class="flex justify-between items-start w-11/12">
+        <div class="flex flex-1 flex-col items-center justify-center border-2 border-solid border-primary mr-4 pt-5">
+            <div class="flex flex-row justify-center items-center">
+                <div class="shrink-0">
+                    <img class="h-24 w-24 object-cover rounded-full" src="./assets/img/user.png"
+                        alt="Current profile photo" />
+                </div>
+                <label class="block">
+                    <span class="sr-only">Choose profile photo</span>
+                    <input type="file" class="block w-full text-sm text-slate-500
+                      file:mr-4 file:py-2 file:px-4
+                      file:rounded-full file:border-0
+                      file:text-sm file:font-semibold
+                      file:bg-violet-50 file:text-violet-700
+                      hover:file:bg-violet-100
+                    " />
+                </label>
+            </div>
+
+            <div class="flex flex-row w-full justify-start items-center p-5">
+                <form action="">
+                    <div class="w-full flex flex-col my-4">
+                        <label class="w-full text-sm font-semibold text-primary">Full Name: </label>
+                        <p class="text-placeholder">{{ fullName }}</p>
+                    </div>
+                    <div class="w-full flex flex-col my-4">
+                        <label class="w-full text-sm font-semibold text-primary">Email: </label>
+                        <p class="text-placeholder">{{ email }}</p>
+                    </div>
+                    <div class="w-full flex flex-col my-4">
+                        <label class="w-full text-sm font-semibold text-primary">Phone: </label><input type="text"
+                            placeholder="test">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="flex flex-1 items-center justify-center border-2 border-solid border-primary ml-4">
+            <img src="" alt="">
+
+            <div class="flex flex-row w-full justify-start items-center p-5">
+                <form action="">
+                    <div class="w-full flex flex-col my-4">
+                        <label class="w-full text-sm font-semibold text-primary">Current Password: </label><input
+                            type="text" placeholder="test">
+                    </div>
+                    <div class="w-full flex flex-col my-4">
+                        <label class="w-full text-sm font-semibold text-primary">New Password: </label><input
+                            type="text" placeholder="test">
+                    </div>
+                    <div class="w-full flex flex-col">
+                        <label class="w-full text-sm font-semibold text-primary">Confirm New Password: </label><input
+                            type="text" placeholder="test">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
