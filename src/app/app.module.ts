@@ -29,8 +29,7 @@ const appRoute: Routes = [
   { path: 'restaurant/:id', component: RestaurantComponent },
   { path: 'dashboard/profile', component: ProfileComponent },
   { path: 'dashboard/listing', component: ListingComponent },
-
-]
+];
 
 @NgModule({
   declarations: [
@@ -46,15 +45,16 @@ const appRoute: Routes = [
     RestaurantComponent,
     ProfileComponent,
     SidenavComponent,
-    ListingComponent
+    ListingComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule, FontAwesomeModule,
+    FormsModule,
+    FontAwesomeModule,
     RouterModule.forRoot(appRoute),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -19,7 +19,11 @@
       </ul>
       <div class="loginBtn">
         <!-- change app-button to profile image if user logged in based on jwt token in localstorage -->
-        <app-button [iconName]="icon" [buttonText]="'Login'" (btnClick)="toLogin()"></app-button>
+        <app-button
+          [iconName]="icon"
+          [buttonText]="'Login'"
+          (btnClick)="toLogin()"
+        ></app-button>
       </div>
     </nav>
   </div>

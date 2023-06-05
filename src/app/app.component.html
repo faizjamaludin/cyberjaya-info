@@ -1,6 +1,5 @@
 <!-- dashboard view -->
 <div *ngIf="isDashboardRoute()">
-
   <body class="min-h-screen w-full flex flex-col">
     <header class="z-40">
       <app-header></app-header>
@@ -22,13 +21,11 @@
   </body>
 </div>
 
-
 <!-- non dashboard view -->
 <div *ngIf="!isDashboardRoute()">
-
   <body class="min-h-screen w-full flex flex-col">
-    <header>
-      <app-header></app-header>
+    <header class="w-full">
+      <app-header class="w-full"></app-header>
     </header>
 
     <article>

@@ -1,65 +1,64 @@
 header {
-    background-color: #fff;
-    padding: 10px 40px;
-    box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 10px 40px;
+  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.1);
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-
 .logo img {
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
 }
 
 nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .menu {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .menu li {
-    padding: 5px 15px;
-    font-size: 15px;
+  padding: 5px 15px;
+  font-size: 15px;
 }
 
 .menu li:first-child {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .menu li a {
-    text-decoration: none;
-    color: var(--primary-color);
+  text-decoration: none;
+  color: var(--primary-color);
 }
 
 .submenu {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .menu li:hover {
-    background-color: var(--secondary-color-20);
-    border-radius: 20px;
+  background-color: var(--secondary-color-20);
+  border-radius: 20px;
 }
 
 .menu li:hover .submenu {
-    display: block;
+  display: block;
 }
 
 /* .submenu li {
@@ -68,9 +67,9 @@ nav {
 } */
 
 .submenu li:hover {
-    background-color: var(--secondary-color-20);
+  background-color: var(--secondary-color-20);
 }
 
 .loginBtn {
-    margin-left: 10px;
+  margin-left: 10px;
 }
