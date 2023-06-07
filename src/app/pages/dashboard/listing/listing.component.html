@@ -1,43 +1,28 @@
-<div
-  class="flex flex-1 w-full h-full justify-start items-center flex-col py-20"
->
+<div class="flex flex-1 w-full h-full justify-start items-center flex-col py-20">
   <h1 class="flex w-11/12 text-3xl font-bold underline mb-20">Listing</h1>
 
   <div class="flex justify-center items-center w-11/12">
     <form (ngSubmit)="onSubmit()" action="" class="w-9/12">
       <!-- section basic information -->
-      <div
-        class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow-"
-      >
+      <div class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow-">
         <h1 class="text-xl font-semibold text-primary">
           Basic <span class="text-secondary">Information</span>
         </h1>
         <div class="w-full flex flex-row my-4">
           <div class="flex flex-col w-full mr-2">
-            <label class="w-full text-sm font-semibold text-primary mb-2"
-              >Type Listing
+            <label class="w-full text-sm font-semibold text-primary mb-2">Type Listing
             </label>
-            <select
-              [(ngModel)]="formData.listType"
-              name="listing"
-              id="listing"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-secondary"
-            >
+            <select [(ngModel)]="formData.listType" name="listing" id="listing"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-secondary">
               <option value="Restaurant">Restaurant</option>
               <option value="Homemade">Homemade</option>
             </select>
           </div>
 
           <div class="flex flex-col w-full ml-2">
-            <label class="w-full text-sm font-semibold text-primary mb-2"
-              >Listing Category</label
-            >
-            <select
-              [(ngModel)]="formData.listCategory"
-              name="category"
-              id="category"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-secondary"
-            >
+            <label class="w-full text-sm font-semibold text-primary mb-2">Listing Category</label>
+            <select [(ngModel)]="formData.listCategory" name="category" id="category"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-secondary">
               <option value="Food">Food</option>
               <option value="Beverages">Beverages</option>
               <option value="Food & Beverages">Food & Beverages</option>
@@ -45,76 +30,42 @@
           </div>
         </div>
         <div class="w-full flex flex-col my-4">
-          <label class="w-full text-sm font-semibold text-primary"
-            >Listing Name
+          <label class="w-full text-sm font-semibold text-primary">Listing Name
           </label>
-          <input
-            type="text"
-            [(ngModel)]="formData.listName"
-            name="listName"
-            id="listName"
-            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-          />
+          <input type="text" [(ngModel)]="formData.listName" name="listName" id="listName"
+            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
         </div>
       </div>
 
       <!-- section address -->
-      <div
-        class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10"
-      >
+      <div class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10">
         <h1 class="text-xl font-semibold text-primary">Address</h1>
 
         <div class="w-full flex flex-row my-4">
           <div class="flex flex-col w-full mr-2">
-            <label class="w-full text-sm font-semibold text-primary mb-2"
-              >Address 1</label
-            >
-            <input
-              type="text"
-              [(ngModel)]="formData.address.address1"
-              name="address1"
-              id="address1"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <label class="w-full text-sm font-semibold text-primary mb-2">Address 1</label>
+            <input type="text" [(ngModel)]="formData.address.address1" name="address1" id="address1"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
-            <label class="w-full text-sm font-semibold text-primary mb-2"
-              >Address 2</label
-            >
-            <input
-              type="text"
-              [(ngModel)]="formData.address.address2"
-              name="address2"
-              id="address2"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <label class="w-full text-sm font-semibold text-primary mb-2">Address 2</label>
+            <input type="text" [(ngModel)]="formData.address.address2" name="address2" id="address2"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
         </div>
 
         <div class="w-full flex flex-row my-4">
           <div class="flex flex-col w-full mr-2">
-            <label class="w-full text-sm font-semibold text-primary mb-2"
-              >ZIP/Postal Code</label
-            >
-            <input
-              type="text"
-              [(ngModel)]="formData.address.postal"
-              name="zip"
-              id="zip"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <label class="w-full text-sm font-semibold text-primary mb-2">ZIP/Postal Code</label>
+            <input type="text" [(ngModel)]="formData.address.postal" name="zip" id="zip"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
-            <label class="w-full text-sm font-semibold text-primary mb-2"
-              >State</label
-            >
-            <select
-              name="state"
-              id="state"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-secondary"
-            >
+            <label class="w-full text-sm font-semibold text-primary mb-2">State</label>
+            <select name="state" id="state"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-secondary">
               <option value="restaurant">Food</option>
               <option value="homemade">Beverages</option>
               <option value="homemade">Food & Beverages</option>
@@ -124,118 +75,70 @@
       </div>
 
       <!-- section gallery -->
-      <div
-        class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10"
-      >
+      <div class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10">
         <h1 class="text-xl font-semibold text-primary">Gallery</h1>
       </div>
 
       <!-- section details/overview -->
-      <div
-        class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10"
-      >
+      <div class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10">
         <h1 class="text-xl font-semibold text-primary">
           Details <span class="text-secondary">Overview</span>
         </h1>
 
         <div class="w-full flex flex-col my-4">
-          <textarea
-            name="overview"
-            [(ngModel)]="formData.overview"
-            id="overview"
-            cols="30"
-            rows="10"
-            class="border border-solid border-primary rounded focus:outline-0 focus:border-secondary whitespace-pre-wrap p-2.5"
-          ></textarea>
+          <textarea name="overview" [(ngModel)]="formData.overview" id="overview" cols="30" rows="10"
+            class="border border-solid border-primary rounded focus:outline-0 focus:border-secondary whitespace-pre-wrap p-2.5"></textarea>
         </div>
 
         <div class="w-full flex flex-row my-4">
           <div class="flex flex-col w-full mr-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >Phone
+            <label class="w-full text-sm font-semibold text-primary">Phone
             </label>
-            <input
-              type="text"
-              [(ngModel)]="formData.phone"
-              name="phone"
-              id="phone"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input type="text" [(ngModel)]="formData.phone" name="phone" id="phone"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full mr-2 ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >Website
+            <label class="w-full text-sm font-semibold text-primary">Website
             </label>
-            <input
-              type="text"
-              [(ngModel)]="formData.web"
-              name="website"
-              id="website"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input type="text" [(ngModel)]="formData.web" name="website" id="website"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >Email
+            <label class="w-full text-sm font-semibold text-primary">Email
             </label>
-            <input
-              type="text"
-              [(ngModel)]="formData.email"
-              name="email"
-              id="email"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input type="text" [(ngModel)]="formData.email" name="email" id="email"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
         </div>
 
         <div class="w-full flex flex-row my-4">
           <div class="flex flex-col w-full mr-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >Facebook
+            <label class="w-full text-sm font-semibold text-primary">Facebook
             </label>
-            <input
-              type="text"
-              [(ngModel)]="formData.fb"
-              name="phone"
-              id="phone"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input type="text" [(ngModel)]="formData.fb" name="phone" id="phone"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full mr-2 ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >Instagram
+            <label class="w-full text-sm font-semibold text-primary">Instagram
             </label>
-            <input
-              type="text"
-              [(ngModel)]="formData.insta"
-              name="website"
-              id="website"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input type="text" [(ngModel)]="formData.insta" name="website" id="website"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >Twitter
+            <label class="w-full text-sm font-semibold text-primary">Twitter
             </label>
-            <input
-              type="text"
-              [(ngModel)]="formData.twitter"
-              name="twitter"
-              id="twitter"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input type="text" [(ngModel)]="formData.twitter" name="twitter" id="twitter"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
         </div>
       </div>
 
       <!-- section opening hours -->
-      <div
-        class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10"
-      >
+      <div class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10">
         <h1 class="text-xl font-semibold text-primary">Opening Hours</h1>
 
         <!-- Monday -->
@@ -245,27 +148,15 @@
           </div>
 
           <div class="flex flex-col w-full mr-2 ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >From</label
-            >
-            <input
-              [(ngModel)]="formData.openingHour.monday.from"
-              type="time"
-              name="mondayFrom"
-              id="mondayFrom"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <label class="w-full text-sm font-semibold text-primary">From</label>
+            <input [(ngModel)]="formData.openingHour.monday.from" type="time" name="mondayFrom" id="mondayFrom"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
             <label class="w-full text-sm font-semibold text-primary">To</label>
-            <input
-              [(ngModel)]="formData.openingHour.monday.to"
-              type="time"
-              name="mondayTo"
-              id="mondayTo"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input [(ngModel)]="formData.openingHour.monday.to" type="time" name="mondayTo" id="mondayTo"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
         </div>
 
@@ -276,25 +167,15 @@
           </div>
 
           <div class="flex flex-col w-full mr-2 ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >From</label
-            >
-            <input
-              type="time"
-              name="tuesdayFrom"
-              id="tuesdayFrom"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <label class="w-full text-sm font-semibold text-primary">From</label>
+            <input [(ngModel)]="formData.openingHour.tuesday.from" type="time" name="tuesdayFrom" id="tuesdayFrom"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
             <label class="w-full text-sm font-semibold text-primary">To</label>
-            <input
-              type="time"
-              name="tuesdayTo"
-              id="tuesdayTo"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input [(ngModel)]="formData.openingHour.tuesday.to" type="time" name="tuesdayTo" id="tuesdayTo"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
         </div>
 
@@ -305,25 +186,15 @@
           </div>
 
           <div class="flex flex-col w-full mr-2 ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >From</label
-            >
-            <input
-              type="time"
-              name="wednesdayFrom"
-              id="wednesdayFrom"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <label class="w-full text-sm font-semibold text-primary">From</label>
+            <input [(ngModel)]="formData.openingHour.wednesday.from" type="time" name="wednesdayFrom" id="wednesdayFrom"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
             <label class="w-full text-sm font-semibold text-primary">To</label>
-            <input
-              type="time"
-              name="wednesdayTo"
-              id="wednesdayTo"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input [(ngModel)]="formData.openingHour.wednesday.to" type="time" name="wednesdayTo" id="wednesdayTo"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
         </div>
 
@@ -334,25 +205,15 @@
           </div>
 
           <div class="flex flex-col w-full mr-2 ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >From</label
-            >
-            <input
-              type="time"
-              name="thursdayFrom"
-              id="thursdayFrom"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <label class="w-full text-sm font-semibold text-primary">From</label>
+            <input [(ngModel)]="formData.openingHour.thursday.from" type="time" name="thursdayFrom" id="thursdayFrom"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
             <label class="w-full text-sm font-semibold text-primary">To</label>
-            <input
-              type="time"
-              name="thursdayTo"
-              id="thursdayTo"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input [(ngModel)]="formData.openingHour.thursday.to" type="time" name="thursdayTo" id="thursdayTo"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
         </div>
 
@@ -363,25 +224,15 @@
           </div>
 
           <div class="flex flex-col w-full mr-2 ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >From</label
-            >
-            <input
-              type="time"
-              name="fridayFrom"
-              id="fridayFrom"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <label class="w-full text-sm font-semibold text-primary">From</label>
+            <input [(ngModel)]="formData.openingHour.friday.from" type="time" name="fridayFrom" id="fridayFrom"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
             <label class="w-full text-sm font-semibold text-primary">To</label>
-            <input
-              type="time"
-              name="fridayTo"
-              id="fridayTo"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input [(ngModel)]="formData.openingHour.friday.to" type="time" name="fridayTo" id="fridayTo"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
         </div>
 
@@ -392,25 +243,15 @@
           </div>
 
           <div class="flex flex-col w-full mr-2 ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >From</label
-            >
-            <input
-              type="time"
-              name="saturdayFrom"
-              id="saturdayFrom"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <label class="w-full text-sm font-semibold text-primary">From</label>
+            <input [(ngModel)]="formData.openingHour.saturday.from" type="time" name="saturdayFrom" id="saturdayFrom"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
             <label class="w-full text-sm font-semibold text-primary">To</label>
-            <input
-              type="time"
-              name="saturdayTo"
-              id="saturdayTo"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input [(ngModel)]="formData.openingHour.saturday.to" type="time" name="saturdayTo" id="saturdayTo"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
         </div>
 
@@ -421,25 +262,15 @@
           </div>
 
           <div class="flex flex-col w-full mr-2 ml-2">
-            <label class="w-full text-sm font-semibold text-primary"
-              >From</label
-            >
-            <input
-              type="time"
-              name="sundayFrom"
-              id="sundayFrom"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <label class="w-full text-sm font-semibold text-primary">From</label>
+            <input [(ngModel)]="formData.openingHour.sunday.from" type="time" name="sundayFrom" id="sundayFrom"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
 
           <div class="flex flex-col w-full ml-2">
             <label class="w-full text-sm font-semibold text-primary">To</label>
-            <input
-              type="time"
-              name="sundayTo"
-              id="sundayTo"
-              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            />
+            <input [(ngModel)]="formData.openingHour.sunday.to" type="time" name="sundayTo" id="sundayTo"
+              class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
           </div>
         </div>
       </div>
