@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ListingComponent implements OnInit {
   message: String = '';
+  userId: String = '';
 
   formData = {
     listType: '',
@@ -62,20 +63,23 @@ export class ListingComponent implements OnInit {
           itemTitle: '',
           itemDesc: '',
           itemPrice: '',
-        }
-      }
-    }
+        },
+      },
+    },
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   onSubmit() {
-    const url = 'http://localhost:3001/listing';
+    // const userId =
+    const url = 'http://localhost:3001/listing/';
 
-    this.http.post(url, this.formData).subscribe((response: any) => {
-      console.log(response);
-    });
+    this.http
+      .post(url, [this.formData, { userId: this.userId }])
+      .subscribe((response: any) => {
+        console.log(response);
+      });
   }
 }
