@@ -55,11 +55,21 @@ export class ListingComponent implements OnInit {
         to: '',
       },
     },
+    pricing: {
+      category: {
+        catTitle: '',
+        catItem: {
+          itemTitle: '',
+          itemDesc: '',
+          itemPrice: '',
+        }
+      }
+    }
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit() {
     const url = 'http://localhost:3001/listing';

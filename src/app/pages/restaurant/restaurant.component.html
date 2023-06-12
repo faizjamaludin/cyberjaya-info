@@ -18,7 +18,7 @@
 
         <section class="overview">
           <h4>Overview</h4>
-          <p>{{ listings.list_overview }}</p>
+          <p class="whitespace-pre-wrap">{{ listings.list_overview }}</p>
         </section>
 
         <section class="features">
@@ -27,74 +27,32 @@
 
         <section class="pricing">
           <h4>Pricing</h4>
-          <div class="pricing-category">
+
+          <div class="pricing-category" *ngFor="let item of pricingItems ">
             <div class="pricing-title">
-              <p>Cold Appetizers</p>
+              <p>{{listings.list_pricing[item].list_category[item].cat_title}}</p>
             </div>
             <!-- menu list -->
-            <div class="menu-container">
+            <div class="menu-container" *ngFor="let menu of menuItems ">
               <div class="menu-img">
                 <img src="assets/img/Taco_Bell.png" alt="" />
               </div>
 
-              <div class="menu-detail">
-                <div class="menu-name">
-                  <p>Crunchwrap Supreme</p>
-                </div>
-                <div class="menu-desc">
-                  <p>
-                    Seasoned Ground Beef, Ground Chicken, Grilled Chicken,
-                    Blackbeans
-                  </p>
-                </div>
-              </div>
-              <div class="menu-price">
-                <p>RM15</p>
-              </div>
-            </div>
-
-            <div class="menu-container">
-              <div class="menu-img">
-                <img src="assets/img/Taco_Bell.png" alt="" />
-              </div>
 
               <div class="menu-detail">
                 <div class="menu-name">
-                  <p>Crunchwrap Supreme</p>
+                  <p>{{listings.list_pricing[item].list_category[item].cat_item[menu].item_title}}</p>
                 </div>
                 <div class="menu-desc">
-                  <p>
-                    Seasoned Ground Beef, Ground Chicken, Grilled Chicken,
-                    Blackbeans
-                  </p>
+                  <p>{{listings.list_pricing[item].list_category[item].cat_item[menu].item_desc}}</p>
                 </div>
               </div>
               <div class="menu-price">
-                <p>RM15</p>
-              </div>
-            </div>
-
-            <div class="menu-container">
-              <div class="menu-img">
-                <img src="assets/img/Taco_Bell.png" alt="" />
-              </div>
-
-              <div class="menu-detail">
-                <div class="menu-name">
-                  <p>Crunchwrap Supreme</p>
-                </div>
-                <div class="menu-desc">
-                  <p>
-                    Seasoned Ground Beef, Ground Chicken, Grilled Chicken,
-                    Blackbeans
-                  </p>
-                </div>
-              </div>
-              <div class="menu-price">
-                <p>RM15</p>
+                <p>RM{{listings.list_pricing[item].list_category[item].cat_item[menu].item_price}}</p>
               </div>
             </div>
           </div>
+
 
           <div class="pricing-category">
             <div class="pricing-title">
@@ -122,47 +80,6 @@
               </div>
             </div>
 
-            <div class="menu-container">
-              <div class="menu-img">
-                <img src="assets/img/Taco_Bell.png" alt="" />
-              </div>
-
-              <div class="menu-detail">
-                <div class="menu-name">
-                  <p>Crunchwrap Supreme</p>
-                </div>
-                <div class="menu-desc">
-                  <p>
-                    Seasoned Ground Beef, Ground Chicken, Grilled Chicken,
-                    Blackbeans
-                  </p>
-                </div>
-              </div>
-              <div class="menu-price">
-                <p>RM15</p>
-              </div>
-            </div>
-
-            <div class="menu-container">
-              <div class="menu-img">
-                <img src="assets/img/Taco_Bell.png" alt="" />
-              </div>
-
-              <div class="menu-detail">
-                <div class="menu-name">
-                  <p>Crunchwrap Supreme</p>
-                </div>
-                <div class="menu-desc">
-                  <p>
-                    Seasoned Ground Beef, Ground Chicken, Grilled Chicken,
-                    Blackbeans
-                  </p>
-                </div>
-              </div>
-              <div class="menu-price">
-                <p>RM15</p>
-              </div>
-            </div>
           </div>
         </section>
 

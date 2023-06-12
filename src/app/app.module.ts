@@ -18,6 +18,8 @@ import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { ProfileComponent } from './pages/dashboard/profile/profile.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ListingComponent } from './pages/dashboard/listing/listing.component';
+import { UserListingComponent } from './pages/dashboard/user-listing/user-listing.component';
+
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -28,7 +30,8 @@ const appRoute: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'restaurant/:id', component: RestaurantComponent },
   { path: 'dashboard/profile', component: ProfileComponent },
-  { path: 'dashboard/listing', component: ListingComponent },
+  { path: 'dashboard/listing/add-listing', component: ListingComponent },
+  { path: 'dashboard/listing', component: UserListingComponent },
 ];
 
 @NgModule({
@@ -46,6 +49,7 @@ const appRoute: Routes = [
     ProfileComponent,
     SidenavComponent,
     ListingComponent,
+    UserListingComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,4 +61,4 @@ const appRoute: Routes = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

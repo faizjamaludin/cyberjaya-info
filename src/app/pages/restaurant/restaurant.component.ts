@@ -32,6 +32,8 @@ export class RestaurantComponent implements OnInit {
   id: string | null = '';
   listings: any;
   openingHours: any;
+  pricingItems: any;
+  menuItems: any;
   from: string | null = '';
   to: string | null = "";
 
@@ -49,13 +51,18 @@ export class RestaurantComponent implements OnInit {
     const url = 'http://localhost:3001/listing/list/' + this.id;
 
     this.http.get(url).subscribe((response: any) => {
-      // this.listings = [response.listing];
       this.listings = response.listing;
 
+      // assign for opening hours item
       this.openingHours = Object.keys(this.listings.list_openingHour)
-      console.log(this.openingHours)
 
-      console.log(this.capitalizeWords((this.listings).toString()))
+      // assign for menu item
+      this.pricingItems = Object.keys(this.listings.list_pricing[0].list_category)
+      this.menuItems = Object.keys(this.listings.list_pricing[0].list_category[this.pricingItems].cat_item)
+
+      // console.log(this.listings.list_pricing[0].list_category);
+      console.log(this.menuItems);
+
     });
   }
 
