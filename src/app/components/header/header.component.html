@@ -19,11 +19,23 @@
       </ul>
       <div class="loginBtn">
         <!-- change app-button to profile image if user logged in based on jwt token in localstorage -->
-        <app-button
-          [iconName]="icon"
-          [buttonText]="'Login'"
-          (btnClick)="toLogin()"
-        ></app-button>
+        <div *ngIf="token === undefined">
+          <app-button
+            [iconName]="icon"
+            [buttonText]="'Login'"
+            (btnClick)="toLogin()"
+          ></app-button>
+        </div>
+
+        <div *ngIf="token !== undefined">
+          <a href="/dashboard/profile">
+            <img
+              class="h-14 w-14 object-cover rounded-full"
+              src="../../../assets/img/user.png"
+              alt=""
+            />
+          </a>
+        </div>
       </div>
     </nav>
   </div>

@@ -40,4 +40,8 @@ export class UserListingComponent {
   onSubmit() {
     this.router.navigate(['dashboard/listing/add-listing']);
   }
+
+  handleView() {
+    this.router.navigate(['restaurant/' + this.userListing[0]._id]);
+  }
 }
