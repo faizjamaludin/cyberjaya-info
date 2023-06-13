@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, inject } from '@angular/core';
 import {
   faLocationDot,
   faMobileRetro,
@@ -9,6 +9,7 @@ import {
 import { faStar as Star } from '@fortawesome/free-regular-svg-icons';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { UserAuthService } from '../../auth/services/user-auth.service'
 
 import { DatePipe } from '@angular/common';
 
@@ -37,10 +38,14 @@ export class RestaurantComponent implements OnInit {
   from: string | null = '';
   to: string | null = "";
 
+  // token initializer
+  token: any;
+
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private userAuthService: UserAuthService
   ) { }
 
 
@@ -60,10 +65,12 @@ export class RestaurantComponent implements OnInit {
       this.pricingItems = Object.keys(this.listings.list_pricing[0].list_category)
       this.menuItems = Object.keys(this.listings.list_pricing[0].list_category[this.pricingItems].cat_item)
 
-      // console.log(this.listings.list_pricing[0].list_category);
-      console.log(this.menuItems);
-
+      // get token from auth service
+      this.token = this.userAuthService.getToken();
     });
+
+
+
   }
 
   // change date format to proper date format
@@ -74,6 +81,8 @@ export class RestaurantComponent implements OnInit {
   capitalizeWords = (str: string) => {
     return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   }
+
+
 }
 
 

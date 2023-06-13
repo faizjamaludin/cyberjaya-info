@@ -19,19 +19,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     // change login button to profile image if user logged in
-    const token: string | null = localStorage.getItem('token');
 
-    if (token) {
-      try {
-        const decodedToken: any = jwt_decode(token)
-        // const url = `http://localhost:3001/users/id/${decodedToken.userId}`
-
-        console.log(decodedToken)
-
-      } catch (err) {
-        console.log(err)
-      }
-    }
   }
 
   // click for login page
