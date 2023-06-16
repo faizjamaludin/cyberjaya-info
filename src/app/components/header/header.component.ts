@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 import { HttpClient } from '@angular/common/http';
 
-import { UserAuthService } from 'src/app/auth/services/user-auth.service';
+import { UserAuthService } from 'src/app/services/auth/user/user-auth.service';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private userAuth: UserAuthService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // change login button to profile image if user logged in

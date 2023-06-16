@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { faStar, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { ListingDataService } from 'src/app/services/listing/listing-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,23 +19,33 @@ export class HomeComponent implements OnInit {
 
   // variables
   listings: any[] = [];
+  id: string | null = '';
 
   search = {
     searchInput: '',
   };
 
-  constructor(public location: Location, private http: HttpClient) { }
+  constructor(
+    public location: Location,
+    private http: HttpClient,
+    private listingData: ListingDataService,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
 
-    const url = 'http://localhost:3001/listing/alllist';
+    this.getListingData();
+    console.log(this.listings);
 
-    this.http.get(url).subscribe((response: any) => {
-      this.listings = response;
+  }
 
-      console.log(this.listings)
+  getListingData(): void {
+    this.listingData.getAllData().subscribe((data: any) => {
+      this.listings = data;
+
     })
   }
+
 
   onSubmit() {
 

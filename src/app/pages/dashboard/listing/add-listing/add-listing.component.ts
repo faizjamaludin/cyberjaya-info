@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
-  selector: 'app-listing',
-  templateUrl: './listing.component.html',
-  styleUrls: ['./listing.component.css'],
+  selector: 'app-add-listing',
+  templateUrl: './add-listing.component.html',
+  styleUrls: ['./add-listing.component.css']
 })
-export class ListingComponent implements OnInit {
+export class AddListingComponent {
   message: String = '';
   userId: String = '';
 
@@ -68,9 +69,9 @@ export class ListingComponent implements OnInit {
     },
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit() {
     // const userId =

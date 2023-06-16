@@ -17,8 +17,9 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { ProfileComponent } from './pages/dashboard/profile/profile.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { ListingComponent } from './pages/dashboard/listing/listing.component';
-import { UserListingComponent } from './pages/dashboard/user-listing/user-listing.component';
+import { AddListingComponent } from './pages/dashboard/listing/add-listing/add-listing.component';
+import { EditListingComponent } from './pages/dashboard/listing/edit-listing/edit-listing.component';
+import { UserListingComponent } from './pages/dashboard/listing/user-listing/user-listing.component';
 
 
 const appRoute: Routes = [
@@ -30,7 +31,7 @@ const appRoute: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'restaurant/:id', component: RestaurantComponent },
   { path: 'dashboard/profile', component: ProfileComponent },
-  { path: 'dashboard/listing/add-listing', component: ListingComponent },
+  { path: 'dashboard/listing/add-listing', component: AddListingComponent },
   { path: 'dashboard/listing', component: UserListingComponent },
 ];
 
@@ -48,8 +49,9 @@ const appRoute: Routes = [
     RestaurantComponent,
     ProfileComponent,
     SidenavComponent,
-    ListingComponent,
     UserListingComponent,
+    AddListingComponent,
+    EditListingComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,38 +5,31 @@
     <div class="flex justify-center items-center w-8/12">
       <div class="flex flex-col w-4/5">
         <div class="flex flex-col">
-          <p
-            class="bg-primary rounded-xl w-fit px-2 py-1 text-xs font-medium text-secondary"
-          >
+          <p class="bg-primary rounded-xl w-fit px-2 py-1 text-xs font-medium text-secondary">
             {{ listings.list_type }}
           </p>
-          <h1 class="font-medium text-primary">{{ listings.list_name }}</h1>
+          <h1 class="font-medium text-primary text-3xl">{{ listings.list_name }}</h1>
           <p class="text-sm font-normal text-placeholder -mt-1.5">Neo Cyber</p>
         </div>
 
         <section class="mt-8">
-          <h4 class="decoration-2 underline decoration-primary">Overview</h4>
-          <p class="whitespace-pre-wrap">{{ listings.list_overview }}</p>
+          <h4 class="decoration-2 underline decoration-primary text-primary">Overview</h4>
+          <p class="whitespace-pre-wrap text-sm text-primary">{{ listings.list_overview }}</p>
         </section>
 
         <section class="mt-8">
-          <h4 class="decoration-2 underline decoration-primary">Features</h4>
+          <h4 class="decoration-2 underline decoration-primary text-primary">Features</h4>
         </section>
 
         <section class="flex flex-col mt-8 w-full">
-          <h4 class="decoration-2 underline decoration-primary">Pricing</h4>
+          <h4 class="decoration-2 underline decoration-primary text-primary">Pricing</h4>
 
           <div class="w-full mt-2.5" *ngFor="let item of pricingItems">
-            <p
-              class="p-2.5 w-full text-primary font-medium bg-secondary-2 border-b-2"
-            >
+            <p class="p-2.5 w-full text-primary font-medium bg-secondary-2 border-b-2">
               {{ listings.list_pricing[item].list_category[item].cat_title }}
             </p>
             <!-- menu list -->
-            <div
-              class="flex items-center w-full p-5"
-              *ngFor="let menu of menuItems"
-            >
+            <div class="flex items-center w-full p-5" *ngFor="let menu of menuItems">
               <div class="flex">
                 <img class="w-16" src="assets/img/Taco_Bell.png" alt="" />
               </div>
@@ -44,23 +37,23 @@
               <div class="flex flex-col w-full pl-5">
                 <p class="text-primary font-medium">
                   {{
-                    listings.list_pricing[item].list_category[item].cat_item[
-                      menu
-                    ].item_title
+                  listings.list_pricing[item].list_category[item].cat_item[
+                  menu
+                  ].item_title
                   }}
                 </p>
                 <p class="text-sm text-placeholder leading-6">
                   {{
-                    listings.list_pricing[item].list_category[item].cat_item[
-                      menu
-                    ].item_desc
+                  listings.list_pricing[item].list_category[item].cat_item[
+                  menu
+                  ].item_desc
                   }}
                 </p>
               </div>
               <p class="flex justify-center font-medium text-primary">
                 RM{{
-                  listings.list_pricing[item].list_category[item].cat_item[menu]
-                    .item_price
+                listings.list_pricing[item].list_category[item].cat_item[menu]
+                .item_price
                 }}
               </p>
             </div>
@@ -68,40 +61,23 @@
         </section>
 
         <section class="mt-8">
-          <h4 class="decoration-2 underline decoration-primary">
+          <h4 class="decoration-2 underline decoration-primary text-primary">
             Similar Listing
           </h4>
         </section>
 
         <section class="mt-8">
-          <h4 class="decoration-2 underline decoration-primary">Review (4)</h4>
-          <div
-            class="flex flex-row items-center p-5 h-40 border border-primary rounded-lg mt-4"
-          >
+          <h4 class="decoration-2 underline decoration-primary text-primary">Review (4)</h4>
+          <div class="flex flex-row items-center p-5 h-40 border border-primary rounded-lg mt-4">
             <div class="flex flex-col items-center justify-center my-0 mx-16">
               <span class="text-primary font-semibold text-5xl">3.2</span>
               <p>out of 5.0</p>
-              <div class="flex w-full mt-8 justify-around">
-                <fa-icon
-                  [ngStyle]="{ color: '#FFAB00' }"
-                  [icon]="faStar"
-                ></fa-icon>
-                <fa-icon
-                  [ngStyle]="{ color: '#FFAB00' }"
-                  [icon]="faStar"
-                ></fa-icon>
-                <fa-icon
-                  [ngStyle]="{ color: '#FFAB00' }"
-                  [icon]="faStar"
-                ></fa-icon>
-                <fa-icon
-                  [ngStyle]="{ color: '#FFAB00' }"
-                  [icon]="faStarHalfStroke"
-                ></fa-icon>
-                <fa-icon
-                  [ngStyle]="{ color: '#FFAB00' }"
-                  [icon]="regStar"
-                ></fa-icon>
+              <div class="flex w-full justify-around">
+                <fa-icon [ngStyle]="{ color: '#FFAB00' }" [icon]="faStar"></fa-icon>
+                <fa-icon [ngStyle]="{ color: '#FFAB00' }" [icon]="faStar"></fa-icon>
+                <fa-icon [ngStyle]="{ color: '#FFAB00' }" [icon]="faStar"></fa-icon>
+                <fa-icon [ngStyle]="{ color: '#FFAB00' }" [icon]="faStarHalfStroke"></fa-icon>
+                <fa-icon [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
               </div>
             </div>
             <hr />
@@ -110,10 +86,7 @@
                 <span class="rating-bars-name">Service</span>
                 <span class="rating-bars-inner">
                   <span class="rating-bars-rating high" data-rating="4">
-                    <span
-                      class="rating-bars-rating-inner"
-                      style="width: 100%"
-                    ></span>
+                    <span class="rating-bars-rating-inner" style="width: 100%"></span>
                   </span>
                   <p>5.0</p>
                 </span>
@@ -122,10 +95,7 @@
                 <span class="rating-bars-name">Service</span>
                 <span class="rating-bars-inner">
                   <span class="rating-bars-rating high" data-rating="4">
-                    <span
-                      class="rating-bars-rating-inner"
-                      style="width: 100%"
-                    ></span>
+                    <span class="rating-bars-rating-inner" style="width: 100%"></span>
                   </span>
                   <p>5.0</p>
                 </span>
@@ -134,10 +104,7 @@
                 <span class="rating-bars-name">Service</span>
                 <span class="rating-bars-inner">
                   <span class="rating-bars-rating high" data-rating="4">
-                    <span
-                      class="rating-bars-rating-inner"
-                      style="width: 100%"
-                    ></span>
+                    <span class="rating-bars-rating-inner" style="width: 100%"></span>
                   </span>
                   <p>5.0</p>
                 </span>
@@ -146,10 +113,7 @@
                 <span class="rating-bars-name">Service</span>
                 <span class="rating-bars-inner">
                   <span class="rating-bars-rating high" data-rating="4">
-                    <span
-                      class="rating-bars-rating-inner"
-                      style="width: 100%"
-                    ></span>
+                    <span class="rating-bars-rating-inner" style="width: 100%"></span>
                   </span>
                   <p>5.0</p>
                 </span>
@@ -157,173 +121,88 @@
             </div>
           </div>
 
-          <div class="comment-content">
-            <div class="avatar">
-              <img src="assets/img/avatar.jpg" alt="" />
-            </div>
+          <div class="mt-20">
+            <h4 class="decoration-2 underline decoration-primary text-primary">Comments</h4>
+            <div class="flex mt-10" *ngFor="let item of comments">
+              <div class="w-16">
+                <img class="rounded-full w-12 h-12" src="assets/img/avatar.jpg" alt="" />
+              </div>
 
-            <div class="reviewer">
-              <div class="reviewer-detail">
-                <div class="reviewer-item">
-                  <div class="reviewer-name">
-                    <p>John Doe</p>
-                  </div>
-                  <div class="reviewer-date">
-                    <p>August 8, 2022 at 9:25 pm</p>
+              <div class="flex flex-col w-full text-primary">
+                <div class="reviewer-detail">
+                  <div class="reviewer-item">
+                    <p class="font-semibold">{{item.user}}</p>
+                    <p class="text-xs font-medium text-placeholder">{{item.date}}</p>
                   </div>
                 </div>
-                <div class="reviewer-rating"></div>
-              </div>
-              <div class="reviewer-comment">
-                <p>review trying out</p>
+                <div class="mt-4 text-sm">
+                  <p class="whitespace-pre-wrap">{{item.comment}}</p>
+                </div>
               </div>
             </div>
           </div>
-          <hr />
         </section>
 
-        <section class="review-form">
-          <div class="form-box">
-            <h3>Add Review</h3>
+        <section class="flex w-full mt-20 text-primary">
+          <div class="flex flex-col w-full border border-primary bg-secondary-2 rounded-lg p-5">
+            <h3 class="font-semibold">Add Review</h3>
 
             <div class="flex w-full mt-8 justify-around">
               <div>
                 <p class="font-medium text-sm">Service</p>
                 <div>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
                 </div>
               </div>
 
               <div>
                 <p class="font-medium text-sm">Value for Money</p>
                 <div>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
                 </div>
               </div>
 
               <div>
                 <p class="font-medium text-sm">Location</p>
                 <div>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
                 </div>
               </div>
 
               <div>
                 <p class="font-medium text-sm">Cleanliness</p>
                 <div>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
-                  <fa-icon
-                    class="pr-1.5"
-                    [ngStyle]="{ color: '#FFAB00' }"
-                    [icon]="regStar"
-                  ></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
+                  <fa-icon class="pr-1.5" [ngStyle]="{ color: '#FFAB00' }" [icon]="regStar"></fa-icon>
                 </div>
               </div>
             </div>
             <hr class="mt-8 border-0 h-px bg-horizontal-line" />
-            <div class="flex justify-center items-center w-full mt-8">
-              <textarea
-                class="border-0 rounded resize-y"
-                name=""
-                id=""
-                cols="100"
-                rows="10"
-              ></textarea>
-            </div>
-            <span class="mt-8">
-              <app-button [buttonText]="'Submit'"></app-button>
-            </span>
+            <form (ngSubmit)="submitComment()" action="">
+              <div class="flex justify-center items-center w-full mt-8">
+                <textarea [(ngModel)]="formData.comment"
+                  class="border-0 rounded resize-y whitespace-pre-wrap p-2.5 text-sm" name="comment" id="comment"
+                  cols="100" rows="10"></textarea>
+              </div>
+              <div class="mt-8">
+                <app-button [buttonText]="'Submit'"></app-button>
+              </div>
+            </form>
           </div>
         </section>
       </div>
@@ -333,17 +212,12 @@
     <div class="flex flex-col items-center w-2/5 h-auto">
       <section class="flex flex-col h-fit w-4/5">
         <div>
-          <p
-            class="p-2.5 text-primary font-medium bg-secondary-2 border-b-2 border-primary"
-          >
+          <p class="p-2.5 text-primary font-medium bg-secondary-2 border-b-2 border-primary">
             Opening Hours
           </p>
         </div>
         <div class="flex flex-col">
-          <div
-            class="flex flex-row justify-between p-2.5"
-            *ngFor="let openingHour of openingHours"
-          >
+          <div class="flex flex-row justify-between p-2.5" *ngFor="let openingHour of openingHours">
             <p class="text-primary text-sm font-medium">{{ openingHour }}</p>
             <p class="text-primary text-sm font-medium">
               {{ listings.list_openingHour[openingHour].from }} -
@@ -354,40 +228,29 @@
       </section>
 
       <section class="flex flex-col h-fit w-4/5 mt-5">
-        <p
-          class="p-2.5 text-primary font-medium bg-secondary-2 border-b-2 border-primary"
-        >
+        <p class="p-2.5 text-primary font-medium bg-secondary-2 border-b-2 border-primary">
           Location & Contact
         </p>
 
         <div class="flex flex-col p-2.5">
           <div class="flex flex-row justify-start items-start">
-            <fa-icon
-              [ngStyle]="{ color: '#FFAB00', 'margin-right': '1rem' }"
-              [icon]="faLocationDot"
-            ></fa-icon>
+            <fa-icon [ngStyle]="{ color: '#FFAB00', 'margin-right': '1rem' }" [icon]="faLocationDot"></fa-icon>
             <p class="text-sm text-primary font-medium mx-1.6 my-0">
               {{
-                listings.list_address.address1 +
-                  listings.list_address.address2 +
-                  listings.list_address.postal
+              listings.list_address.address1 +
+              listings.list_address.address2 +
+              listings.list_address.postal
               }}
             </p>
           </div>
           <div class="flex flex-row justify-start items-start">
-            <fa-icon
-              [ngStyle]="{ color: '#FFAB00', 'margin-right': '1rem' }"
-              [icon]="faMobileRetro"
-            ></fa-icon>
+            <fa-icon [ngStyle]="{ color: '#FFAB00', 'margin-right': '1rem' }" [icon]="faMobileRetro"></fa-icon>
             <p class="text-sm text-primary font-medium mx-1.6 my-0">
               {{ listings.list_phone }}
             </p>
           </div>
           <div class="flex flex-row justify-start items-start">
-            <fa-icon
-              [ngStyle]="{ color: '#FFAB00', 'margin-right': '1rem' }"
-              [icon]="faEnvelope"
-            ></fa-icon>
+            <fa-icon [ngStyle]="{ color: '#FFAB00', 'margin-right': '1rem' }" [icon]="faEnvelope"></fa-icon>
             <p class="text-sm text-primary font-medium mx-1.6 my-0">
               {{ listings.list_email }}
             </p>

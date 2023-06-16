@@ -12,7 +12,7 @@ export class UserListingComponent {
   userListing: any;
   userId: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     const token: string | null = localStorage.getItem('token');
