@@ -114,7 +114,7 @@ export class RestaurantComponent implements OnInit {
 
 
     } catch (error) {
-
+      console.log(error);
     }
   }
 

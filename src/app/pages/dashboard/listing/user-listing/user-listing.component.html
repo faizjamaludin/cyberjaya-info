@@ -15,26 +15,33 @@
                 </div>
 
                 <!-- main container each listing -->
-                <div class="w-full flex items-center border-x border-b border-gray-100 rounded-b py-5 px-5 justify-between hover:bg-secondary-2 hover:transition-all"
-                    *ngFor="let items of userListing">
+                <div *ngFor="let items of userListing">
                     <!-- left item content -->
-                    <div class="flex flex-row">
-                        <img class="w-28 h-28 object-scale-down" src="../../../../assets/img/Taco_Bell.png" alt="" />
-                        <div class="flex flex-col justify-center items-start ml-6">
-                            <h3 class="font-semibold text-primary text-lg">
-                                {{ items.listing.list_name }}
-                            </h3>
-                            <p class="text-primary text-sm">Cyberjaya</p>
-                            <p class="text-placeholder text-xs font-medium leading-6">
-                                {{ items.listing.list_type }}
-                            </p>
+                    <div
+                        class="w-full flex items-center border-x border-b border-gray-100 rounded-b py-5 px-5 justify-between hover:bg-secondary-2 hover:transition-all">
+                        <div class="flex flex-row">
+                            <img class="w-28 h-28 object-scale-down" src="../../../../assets/img/Taco_Bell.png"
+                                alt="" />
+                            <div class="flex flex-col justify-center items-start ml-6">
+                                <h3 class="font-semibold text-primary text-lg">
+                                    {{ items.listing.list_name }}
+                                </h3>
+                                <p class="text-primary text-sm">Cyberjaya</p>
+                                <p class="text-placeholder text-xs font-medium leading-6">
+                                    {{ items.listing.list_type }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- right item content button -->
-                    <div class="flex flex-row justify-between w-32">
-                        <app-button [buttonText]="'View'" (btnClick)="handleView()"></app-button>
-                        <app-button [buttonText]="'Edit'"></app-button>
+                        <!-- right item content button -->
+                        <div class="flex flex-row justify-between items-center w-28 text-sm">
+                            <a class="cursor-pointer decoration-primary decoration-2 hover:underline"
+                                (click)="handleView(items._id)" [routerLink]="">View</a>
+                            <a class="border border-primary p-2 rounded hover:bg-primary hover:text-white transition-all cursor-pointer"
+                                (click)="handleEdit()" [routerLink]="">Edit</a>
+                            <a class="cursor-pointer decoration-primary decoration-2 hover:underline"
+                                (click)="handleDel(items._id)" [routerLink]="">X</a>
+                        </div>
                     </div>
                 </div>
             </div>

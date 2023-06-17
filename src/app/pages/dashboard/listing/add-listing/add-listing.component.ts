@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UserAuthService } from 'src/app/services/auth/user/user-auth.service';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class AddListingComponent {
   userId: String = '';
 
   formData = {
+    userId: '',
     listType: '',
     listCategory: '',
     listName: '',
@@ -69,16 +71,24 @@ export class AddListingComponent {
     },
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private userAuth: UserAuthService
+  ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    const token = this.userAuth.getToken();
+    this.formData.userId = token.userId;
+
+  }
 
   onSubmit() {
     // const userId =
     const url = 'http://localhost:3001/listing/';
 
+
     this.http
-      .post(url, [this.formData, { userId: this.userId }])
+      .post(url, this.formData)
       .subscribe((response: any) => {
         console.log(response);
       });

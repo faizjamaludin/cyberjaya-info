@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import jwt_decode from 'jwt-decode';
+import { UserAuthService } from 'src/app/services/auth/user/user-auth.service';
+import { ListingDataService } from 'src/app/services/listing/listing-data.service';
+
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-user-listing',
@@ -9,39 +12,49 @@ import jwt_decode from 'jwt-decode';
   styleUrls: ['./user-listing.component.css'],
 })
 export class UserListingComponent {
-  userListing: any;
+  userListing: any[] = [];
   userId: string = '';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private userAuth: UserAuthService,
+    private listingData: ListingDataService
+  ) { }
 
   ngOnInit(): void {
-    const token: string | null = localStorage.getItem('token');
+    const token = this.userAuth.getToken()
+    this.userId = token.userId;
+    this.getListingData(this.userId);
+  }
 
-    if (token) {
-      try {
-        const decodedToken: any = jwt_decode(token);
-        this.userId = decodedToken.userId;
+  async getListingData(id: any): Promise<string> {
+    try {
+      const data: any = await from(this.listingData.getListingUserData(id)).toPromise();
+      this.userListing = data;
 
-        // console.log(this.userId);
-      } catch (err) {
-        console.log(err);
-      }
+      console.log(this.userListing)
+
+      return data;
+    } catch (error) {
+      console.error(error);
+      return '';
     }
-
-    const url = 'http://localhost:3001/listing/list/user/' + this.userId;
-
-    this.http.get(url).subscribe((response: any) => {
-      this.userListing = response;
-
-      console.log(this.userListing);
-    });
   }
 
   onSubmit() {
     this.router.navigate(['dashboard/listing/add-listing']);
   }
 
-  handleView() {
-    this.router.navigate(['restaurant/' + this.userListing[0]._id]);
+  handleView(id: any) {
+    this.router.navigate(['restaurant/' + id]);
+  }
+
+  handleEdit() {
+
+  }
+
+  async handleDel(id: string) {
+    await from(this.listingData.deleteData(id)).toPromise();
   }
 }

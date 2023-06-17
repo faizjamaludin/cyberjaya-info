@@ -6,6 +6,7 @@ module.exports = {
       "primary": "#110B49",
       "secondary": "#FFAB00",
       "secondary-2": "rgba(255, 171, 0, 0.2)",
+      "white": "#FFFFFF",
       "placeholder": "rgba(0, 0, 0, 0.5)",
       "horizontal-line": "rgba(102, 102, 102, 0.2)",
       "rating-bar": "#64bc36"

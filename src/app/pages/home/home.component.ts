@@ -35,13 +35,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.getListingData();
-    console.log(this.listings);
+
 
   }
 
   getListingData(): void {
     this.listingData.getAllData().subscribe((data: any) => {
       this.listings = data;
+      console.log(this.listings);
 
     })
   }

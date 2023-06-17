@@ -236,11 +236,7 @@
           <div class="flex flex-row justify-start items-start">
             <fa-icon [ngStyle]="{ color: '#FFAB00', 'margin-right': '1rem' }" [icon]="faLocationDot"></fa-icon>
             <p class="text-sm text-primary font-medium mx-1.6 my-0">
-              {{
-              listings.list_address.address1 +
-              listings.list_address.address2 +
-              listings.list_address.postal
-              }}
+              {{listings.list_address.address1}}, {{listings.list_address.address2}}, {{listings.list_address.postal}}
             </p>
           </div>
           <div class="flex flex-row justify-start items-start">

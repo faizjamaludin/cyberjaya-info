@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
 
   fullName: string = "";
   email: string = "";
+  phone: string = "";
 
   token = localStorage.getItem('token');
 
@@ -28,6 +29,9 @@ export class ProfileComponent implements OnInit {
 
         this.fullName = decodedToken.name;
         this.email = decodedToken.email;
+        this.phone = decodedToken.phone;
+
+        console.log(decodedToken)
 
       } catch (err) {
         console.log(err)

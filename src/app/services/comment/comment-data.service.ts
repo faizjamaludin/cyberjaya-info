@@ -15,4 +15,11 @@ export class CommentDataService {
 
     return data;
   }
+
+  deleteListingComment(id: string): Observable<any> {
+    const url = 'http://localhost:3001/comment/delete/' + id;
+    const data = this.http.delete(url);
+
+    return data;
+  }
 }
