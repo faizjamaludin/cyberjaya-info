@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faStar as Star } from '@fortawesome/free-regular-svg-icons';
 import { ActivatedRoute } from '@angular/router';
-import { UserAuthService } from '../../services/auth/user/user-auth.service'
+import { UserAuthService } from '../../services/auth/user/user-auth.service';
 import { ListingDataService } from 'src/app/services/listing/listing-data.service';
 import { CommentDataService } from 'src/app/services/comment/comment-data.service';
 import { HttpClient } from '@angular/common/http';
@@ -41,7 +41,7 @@ export class RestaurantComponent implements OnInit {
   pricingItems: any;
   menuItems: any;
   from: string | null = '';
-  to: string | null = "";
+  to: string | null = '';
   listingId: string | null = '';
   userId: string | null = '';
   userName: string | null = '';
@@ -55,7 +55,7 @@ export class RestaurantComponent implements OnInit {
     listingId: '',
     userId: '',
     comment: '',
-  }
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -65,39 +65,37 @@ export class RestaurantComponent implements OnInit {
     private http: HttpClient,
     private userData: UserDataService,
     private commentData: CommentDataService
-  ) { }
-
-
+  ) {}
 
   ngOnInit(): void {
-
     this.getData();
-
   }
 
   getData(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.listingData.getData(this.id).subscribe((data: any) => {
-      this.listings = data.listing;
-      this.setOpeningHour(this.listings);
-      this.setPricingItem(this.listings);
-      this.getCommentData(data._id);
+    this.listingData.getData(this.id).subscribe(
+      (data: any) => {
+        this.listings = data.listing;
+        this.setOpeningHour(this.listings);
+        this.setPricingItem(this.listings);
+        this.getCommentData(data._id);
 
-      this.setListingId(data);
-      this.setUserId();
+        this.setListingId(data);
+        this.setUserId();
 
-
-
-    },
+        console.log(data.listing.list_pricing.length);
+      },
       (error: any) => {
         console.error(error);
       }
-    )
+    );
   }
 
   async getCommentData(id: any) {
     try {
-      const data: any = await this.commentData.getListingCommentId(id).toPromise();
+      const data: any = await this.commentData
+        .getListingCommentId(id)
+        .toPromise();
 
       console.log(data);
 
@@ -106,29 +104,33 @@ export class RestaurantComponent implements OnInit {
         const date = await this.formatDate(data[x].date);
 
         this.comments.push({
-          'comment': data[x].comment,
-          'user': user,
-          'date': date
+          comment: data[x].comment,
+          user: user,
+          date: date,
         });
       }
-
-
     } catch (error) {
       console.log(error);
     }
   }
 
   setOpeningHour(data: any) {
-    this.openingHours = Object.keys(data.list_openingHour)
+    this.openingHours = Object.keys(data.list_openingHour);
   }
 
   setPricingItem(data: any) {
-    this.pricingItems = Object.keys(data.list_pricing[0].list_category)
-    this.setMenuItem(data, this.pricingItems)
+    data.list_pricing.map((item: any, key: any) => {
+      console.log(item);
+    });
+
+    this.pricingItems = Object.keys(data.list_pricing[0].list_category);
+    this.setMenuItem(data, this.pricingItems);
   }
 
   setMenuItem(data: any, dataItem: any) {
-    this.menuItems = Object.keys(data.list_pricing[0].list_category[dataItem].cat_item)
+    this.menuItems = Object.keys(
+      data.list_pricing[0].list_category[dataItem].cat_item
+    );
   }
 
   setUserId() {
@@ -148,7 +150,7 @@ export class RestaurantComponent implements OnInit {
   }
 
   setListingId(data: any) {
-    this.formData.listingId = data._id
+    this.formData.listingId = data._id;
   }
 
   // change date format to proper date format
@@ -157,22 +159,17 @@ export class RestaurantComponent implements OnInit {
   }
 
   capitalizeWords(str: string) {
-    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return str
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
   }
 
   submitComment() {
-
     const url = 'http://localhost:3001/comment/';
 
-    this.http
-      .post(url, this.formData)
-      .subscribe((response: any) => {
-        // console.log(response);
-      });
+    this.http.post(url, this.formData).subscribe((response: any) => {
+      // console.log(response);
+    });
   }
-
-
 }
-
-
-

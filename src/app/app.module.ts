@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,7 +22,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AddListingComponent } from './pages/dashboard/listing/add-listing/add-listing.component';
 import { EditListingComponent } from './pages/dashboard/listing/edit-listing/edit-listing.component';
 import { UserListingComponent } from './pages/dashboard/listing/user-listing/user-listing.component';
-
+import { TestingComponent } from './test/testing/testing.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,6 +35,7 @@ const appRoute: Routes = [
   { path: 'dashboard/profile', component: ProfileComponent },
   { path: 'dashboard/listing/add-listing', component: AddListingComponent },
   { path: 'dashboard/listing', component: UserListingComponent },
+  { path: 'dashboard/testing', component: TestingComponent },
 ];
 
 @NgModule({
@@ -52,6 +55,7 @@ const appRoute: Routes = [
     UserListingComponent,
     AddListingComponent,
     EditListingComponent,
+    TestingComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,8 +63,10 @@ const appRoute: Routes = [
     FontAwesomeModule,
     RouterModule.forRoot(appRoute),
     HttpClientModule,
+    NgxDropzoneModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
