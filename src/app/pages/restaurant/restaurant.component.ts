@@ -47,6 +47,9 @@ export class RestaurantComponent implements OnInit {
   userName: string | null = '';
   comments: any[] = [];
 
+  // #################
+  listCat: any[] = [];
+
   // token initializer
   token: any;
 
@@ -65,7 +68,7 @@ export class RestaurantComponent implements OnInit {
     private http: HttpClient,
     private userData: UserDataService,
     private commentData: CommentDataService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getData();
@@ -77,13 +80,14 @@ export class RestaurantComponent implements OnInit {
       (data: any) => {
         this.listings = data.listing;
         this.setOpeningHour(this.listings);
-        this.setPricingItem(this.listings);
+        // this.setPricingItem(this.listings);
         this.getCommentData(data._id);
 
         this.setListingId(data);
         this.setUserId();
 
-        console.log(data.listing.list_pricing.length);
+        this.setItem(data);
+
       },
       (error: any) => {
         console.error(error);
@@ -96,8 +100,6 @@ export class RestaurantComponent implements OnInit {
       const data: any = await this.commentData
         .getListingCommentId(id)
         .toPromise();
-
-      console.log(data);
 
       for (let x = 0; x < data.length; x++) {
         const user = await this.getUser(data[x].userId);
@@ -172,4 +174,21 @@ export class RestaurantComponent implements OnInit {
       // console.log(response);
     });
   }
+
+  // ##################################
+
+  setItem(data: any) {
+
+    // for (let x = 0; x < data.listing.list_pricing.length; x++) {
+    //   this.listCat = data.listing.list_pricing[x];
+
+    // }
+
+    this.listCat = data.listing.list_pricing;
+    console.log(this.listCat);
+
+  }
 }
+
+
+
