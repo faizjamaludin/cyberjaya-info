@@ -1,0 +1,156 @@
+<div class="flex flex-1 w-full h-full justify-start items-center flex-col py-20">
+    <h1 class="flex w-11/12 text-3xl text-primary font-bold underline mb-20">Listing</h1>
+
+    <div class="flex justify-center items-center w-11/12">
+        <form [formGroup]="formData" class="w-9/12">
+            <div formGroupName="basicInfo"
+                class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow-">
+                <h1 class="text-xl font-semibold text-primary">
+                    Basic <span class="text-secondary">Information</span>
+                </h1>
+                <div class="w-full flex flex-row my-4">
+                    <div class="flex flex-col w-full mr-2">
+                        <label class="w-full text-sm font-semibold text-primary mb-2">Type Listing
+                        </label>
+                        <select formControlName="selectedType" name="listing" id="listing"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-secondary">
+                            <option value="Restaurant">Restaurant</option>
+                            <option value="Homemade">Homemade</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-col w-full ml-2">
+                        <label class="w-full text-sm font-semibold text-primary mb-2">Listing Category</label>
+                        <select formControlName="selectedCategory" name="category" id="category"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-secondary">
+                            <option value="Food">Food</option>
+                            <option value="Beverages">Beverages</option>
+                            <option value="Food & Beverages">Food & Beverages</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col my-4">
+                    <label class="w-full text-sm font-semibold text-primary">Listing Name
+                    </label>
+                    <input type="text" formControlName="listingName" name="listName" id="listName"
+                        class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
+                </div>
+            </div>
+
+            <!-- address section -->
+            <div formGroupName="address"
+                class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10">
+                <h1 class="text-xl font-semibold text-primary">Address</h1>
+
+                <div class="w-full flex flex-row my-4">
+                    <div class="flex flex-col w-full mr-2">
+                        <label class="w-full text-sm font-semibold text-primary mb-2">Address 1</label>
+                        <input formControlName="address1" type="text" name="address1" id="address1"
+                            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
+                    </div>
+
+                    <div class="flex flex-col w-full ml-2">
+                        <label class="w-full text-sm font-semibold text-primary mb-2">Address 2</label>
+                        <input formControlName="address2" type="text" name="address2" id="address2"
+                            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
+                    </div>
+                </div>
+
+                <div class="w-full flex flex-row my-4">
+                    <div class="flex flex-col w-full mr-2">
+                        <label class="w-full text-sm font-semibold text-primary mb-2">ZIP/Postal Code</label>
+                        <input formControlName="zip" type="text" name="zip" id="zip"
+                            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
+                    </div>
+
+                    <div class="flex flex-col w-full ml-2">
+                        <label class="w-full text-sm font-semibold text-primary mb-2">State</label>
+                        <select formControlName="selectedState" name="state" id="state"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-secondary">
+                            <option value="Cyberjaya">Cyberjaya</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- section gallery -->
+            <div class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10">
+                <h1 class="text-xl font-semibold text-primary">Gallery</h1>
+
+                <ngx-dropzone (change)="onSelect($event)">
+                    <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                    </ngx-dropzone-preview>
+                </ngx-dropzone>
+
+                <div class="flex flex-row flex-wrap">
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+                        <ngx-dropzone-label class="flex justify-center items-center">{{
+                            f.name
+                            }}</ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                </div>
+            </div>
+
+            <!-- section details/overview -->
+            <div formGroupName="detailsOverview"
+                class="flex flex-col border-2 border-solid border-primary p-10 rounded-lg shadow mt-10">
+                <h1 class="text-xl font-semibold text-primary">
+                    Details <span class="text-secondary">Overview</span>
+                </h1>
+
+                <div class="w-full flex flex-col my-4">
+                    <textarea formControlName="overview" name="overview" id="overview" cols="30" rows="10"
+                        class="border border-solid border-primary rounded focus:outline-0 focus:border-secondary whitespace-pre-wrap p-2.5"></textarea>
+                </div>
+
+                <div class="w-full flex flex-row my-4">
+                    <div class="flex flex-col w-full mr-2">
+                        <label class="w-full text-sm font-semibold text-primary">Phone
+                        </label>
+                        <input formControlName="phone" type="text" name="phone" id="phone"
+                            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
+                    </div>
+
+                    <div class="flex flex-col w-full mr-2 ml-2">
+                        <label class="w-full text-sm font-semibold text-primary">Website
+                        </label>
+                        <input formControlName="web" type="text" name="website" id="website"
+                            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
+                    </div>
+
+                    <div class="flex flex-col w-full ml-2">
+                        <label class="w-full text-sm font-semibold text-primary">Email
+                        </label>
+                        <input formControlName="email" type="text" name="email" id="email"
+                            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
+                    </div>
+                </div>
+
+                <div class="w-full flex flex-row my-4">
+                    <div class="flex flex-col w-full mr-2">
+                        <label class="w-full text-sm font-semibold text-primary">Facebook
+                        </label>
+                        <input formControlName="fb" type="text" name="fb" id="fb"
+                            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
+                    </div>
+
+                    <div class="flex flex-col w-full mr-2 ml-2">
+                        <label class="w-full text-sm font-semibold text-primary">Instagram
+                        </label>
+                        <input formControlName="insta" type="text" name="insta" id="insta"
+                            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
+                    </div>
+
+                    <div class="flex flex-col w-full ml-2">
+                        <label class="w-full text-sm font-semibold text-primary">Twitter
+                        </label>
+                        <input formControlName="twitter" type="text" name="twitter" id="twitter"
+                            class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

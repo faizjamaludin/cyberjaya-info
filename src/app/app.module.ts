@@ -23,6 +23,7 @@ import { AddListingComponent } from './pages/dashboard/listing/add-listing/add-l
 import { EditListingComponent } from './pages/dashboard/listing/edit-listing/edit-listing.component';
 import { UserListingComponent } from './pages/dashboard/listing/user-listing/user-listing.component';
 import { TestingComponent } from './test/testing/testing.component';
+import { FormTestingComponent } from './test/form-testing/form-testing.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -36,6 +37,7 @@ const appRoute: Routes = [
   { path: 'dashboard/listing/add-listing', component: AddListingComponent },
   { path: 'dashboard/listing', component: UserListingComponent },
   { path: 'dashboard/testing', component: TestingComponent },
+  { path: 'dashboard/form/testing', component: FormTestingComponent },
 ];
 
 @NgModule({
@@ -56,6 +58,7 @@ const appRoute: Routes = [
     AddListingComponent,
     EditListingComponent,
     TestingComponent,
+    FormTestingComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,4 +72,4 @@ const appRoute: Routes = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

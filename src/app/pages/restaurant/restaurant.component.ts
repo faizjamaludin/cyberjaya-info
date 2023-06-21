@@ -38,13 +38,11 @@ export class RestaurantComponent implements OnInit {
   id: string | null = '';
   listings: any;
   openingHours: any;
-  pricingItems: any;
   menuItems: any;
   from: string | null = '';
   to: string | null = '';
   listingId: string | null = '';
   userId: string | null = '';
-  userName: string | null = '';
   comments: any[] = [];
 
   // #################
@@ -80,12 +78,9 @@ export class RestaurantComponent implements OnInit {
       (data: any) => {
         this.listings = data.listing;
         this.setOpeningHour(this.listings);
-        // this.setPricingItem(this.listings);
         this.getCommentData(data._id);
-
         this.setListingId(data);
         this.setUserId();
-
         this.setItem(data);
 
       },
@@ -120,19 +115,12 @@ export class RestaurantComponent implements OnInit {
     this.openingHours = Object.keys(data.list_openingHour);
   }
 
-  setPricingItem(data: any) {
-    data.list_pricing.map((item: any, key: any) => {
-      console.log(item);
-    });
+  // set all details item pricing
+  setItem(data: any) {
 
-    this.pricingItems = Object.keys(data.list_pricing[0].list_category);
-    this.setMenuItem(data, this.pricingItems);
-  }
+    this.listCat = data.listing.list_pricing;
+    console.log(this.listCat);
 
-  setMenuItem(data: any, dataItem: any) {
-    this.menuItems = Object.keys(
-      data.list_pricing[0].list_category[dataItem].cat_item
-    );
   }
 
   setUserId() {
@@ -175,19 +163,6 @@ export class RestaurantComponent implements OnInit {
     });
   }
 
-  // ##################################
-
-  setItem(data: any) {
-
-    // for (let x = 0; x < data.listing.list_pricing.length; x++) {
-    //   this.listCat = data.listing.list_pricing[x];
-
-    // }
-
-    this.listCat = data.listing.list_pricing;
-    console.log(this.listCat);
-
-  }
 }
 
 
