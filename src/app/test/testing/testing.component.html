@@ -6,67 +6,43 @@
           <label class="w-full text-sm font-semibold text-primary mb-2">
             Category Title
           </label>
-          <input
-            formControlName="catTitle"
-            type="text"
-            name="title"
+          <input formControlName="catTitle" type="text" name="title"
             class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-            placeholder="Nasi Goreng"
-          />
+            placeholder="Nasi Goreng" />
         </div>
         <div formArrayName="catItem">
-          <div
-            class="flex flex-col w-full mr-2"
-            *ngFor="
+          <div class="flex flex-col w-full mr-2" *ngFor="
               let item of getCategoryItems(category).controls;
               let itemIndex = index
-            "
-            [formGroupName]="itemIndex"
-          >
+            " [formGroupName]="itemIndex">
             <div class="w-full flex flex-row my-4">
               <div class="flex flex-col w-full">
                 <label class="w-full text-sm font-semibold text-primary mb-2">
                   Title
                 </label>
-                <input
-                  formControlName="itemTitle"
-                  type="text"
-                  name="title"
+                <input formControlName="itemTitle" type="text" name="title"
                   class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-                  placeholder="Nasi Goreng"
-                />
+                  placeholder="Nasi Goreng" />
               </div>
 
               <div class="flex flex-col w-full ml-2">
                 <label class="w-full text-sm font-semibold text-primary mb-2">
                   Description
                 </label>
-                <input
-                  formControlName="itemDesc"
-                  type="text"
-                  name="description"
+                <input formControlName="itemDesc" type="text" name="description"
                   class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-                  placeholder="Nasi Goreng Kampung"
-                />
+                  placeholder="Nasi Goreng Kampung" />
               </div>
 
               <div class="flex flex-col w-2/12 ml-2">
                 <label class="w-full text-sm font-semibold text-primary mb-2">
                   Price
                 </label>
-                <input
-                  formControlName="itemPrice"
-                  type="number"
-                  name="price"
+                <input formControlName="itemPrice" type="number" name="price"
                   class="border border-gray-300 rounded-lg p-2.5 focus:outline-1 focus:outline-secondary"
-                  placeholder="5.50"
-                />
+                  placeholder="5.50" />
               </div>
-              <button
-                class="mt-8 pl-5"
-                type="button"
-                (click)="removeItem(category, itemIndex)"
-              >
+              <button class="mt-8 pl-5" type="button" (click)="removeItem(category, itemIndex)">
                 X
               </button>
             </div>

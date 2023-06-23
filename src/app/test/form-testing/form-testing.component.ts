@@ -6,6 +6,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-form-testing',
@@ -16,7 +18,13 @@ export class FormTestingComponent implements OnInit {
   formData!: FormGroup;
   files: File[] = [];
 
-  constructor(private formBuilder: FormBuilder) {}
+  // icons
+  faXmark = faXmark;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -24,84 +32,61 @@ export class FormTestingComponent implements OnInit {
 
   // create form data
   createForm() {
-    const basicInfo = this.formBuilder.group({
-      selectedType: ['Restaurant'],
-      selectedCategory: ['Food'],
-      listingName: ['', Validators.required],
-    });
 
-    const address = this.formBuilder.group({
-      address1: ['', Validators.required],
-      address2: ['', Validators.required],
-      zip: ['', Validators.required],
-      selectedState: ['Cyberjaya'],
-    });
-
-    const detailsOverview = this.formBuilder.group({
-      overview: [''],
-      phone: [''],
-      web: [''],
-      email: ['', Validators.email],
-      fb: [''],
-      insta: [''],
-      twitter: [''],
-    });
-
-    const pricing = this.formBuilder.group({
-      pricingCat: this.formBuilder.array([]),
+    const gallery = this.formBuilder.group({
+      pictures: this.formBuilder.array([]),
     });
 
     this.formData = this.formBuilder.group({
-      basicInfo: basicInfo,
-      address: address,
-      detailsOverview: detailsOverview,
-      pricing: pricing,
+      gallery: gallery,
+
     });
 
-    console.log(this.formData.value);
-    this.addCategory();
   }
 
-  get pricingCat() {
-    return this.formData.get('categories') as FormArray;
+  get gallery(): FormArray {
+    return this.formData.get('gallery.pictures') as FormArray
   }
 
-  getCategoryItems(category: any): FormArray {
-    return category.get('catItem') as FormArray;
-  }
+  addFilesToGallery(addedFiles: File[]) {
+    const controlArray = this.gallery;
 
-  addCategory() {
-    const category = this.formBuilder.group({
-      catTitle: '',
-      catItem: this.formBuilder.array([]),
-    });
-    this.pricingCat.push(category);
-  }
-
-  addItem(category: any) {
-    const item = this.formBuilder.group({
-      itemTitle: '',
-      itemDesc: '',
-      itemPrice: '',
-    });
-    const categoryItems = this.getCategoryItems(category);
-    categoryItems.push(item);
-  }
-
-  removeItem(category: any, itemIndex: number) {
-    const categoryItems = this.getCategoryItems(category);
-    categoryItems.removeAt(itemIndex);
+    addedFiles.forEach((file: File) => {
+      controlArray.push(this.formBuilder.group({
+        file: file
+      }))
+    })
   }
 
   // select picture from local. can select multiple pictures
   onSelect(event: any) {
     console.log(event);
     this.files.push(...event.addedFiles);
+    this.addFilesToGallery(event.addedFiles)
   }
 
   // remove picture from the gallery section.
   onRemove(event: File) {
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
+  }
+
+  onSubmit() {
+    const url = 'http://localhost:3001/photos/upload';
+
+    const formData = new FormData();
+
+    for (const file of this.files) {
+      formData.append('gallery.pictures', file);
+    }
+
+    if (this.formData.valid) {
+      this.http.post(url, formData).subscribe((response: any) => {
+        console.log(response);
+      });
+      console.log(this.formData.value);
+    } else {
+      console.log('nope')
+    }
   }
 }
