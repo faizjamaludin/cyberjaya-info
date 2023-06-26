@@ -12,19 +12,17 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 export class AddListingComponent implements OnInit {
   message: String = '';
   files: File[] = [];
-  formData !: FormGroup
+  formData!: FormGroup;
   faXmark = faXmark;
-
-
 
   constructor(
     private http: HttpClient,
     private userAuth: UserAuthService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
-
-    this.createForm()
+    this.createForm();
   }
 
   // ##############################################
@@ -106,14 +104,11 @@ export class AddListingComponent implements OnInit {
     this.pricingCat.removeAt(catIndex);
   }
 
-
-
   // select picture from local. can select multiple pictures
   onSelect(event: any) {
     console.log(event);
     this.files.push(...event.addedFiles);
   }
-
 
   // remove picture from the gallery section.
   onRemove(event: File) {
@@ -121,23 +116,30 @@ export class AddListingComponent implements OnInit {
     this.files.splice(this.files.indexOf(event), 1);
   }
 
-
-
   // ##############################################
 
   onSubmit() {
-    const url = 'http://localhost:3001/listing/';
+    const url = 'http://localhost:3001/listing';
     const data = this.formData.value;
+    const token = this.userAuth.getToken();
+    const formData = new FormData();
+    const restName = this.formData.value.basicInfo.listingName;
+
+    formData.append('restName', restName);
+
+    for (const file of this.files) {
+      formData.append('file', file);
+    }
+
+    formData.append('data', JSON.stringify(data));
 
     if (this.formData.valid) {
-      this.http.post(url, data).subscribe((response: any) => {
+      this.http.post(url, formData).subscribe((response: any) => {
         console.log(response);
       });
       console.log(this.formData.value);
     } else {
-      console.log('nope')
+      console.log('nope');
     }
-
-
   }
 }

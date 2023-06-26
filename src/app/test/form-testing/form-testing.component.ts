@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { UserAuthService } from 'src/app/services/auth/user/user-auth.service';
 
 @Component({
   selector: 'app-form-testing',
@@ -23,8 +24,9 @@ export class FormTestingComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+    private authUser: UserAuthService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -32,37 +34,36 @@ export class FormTestingComponent implements OnInit {
 
   // create form data
   createForm() {
-
     const gallery = this.formBuilder.group({
       pictures: this.formBuilder.array([]),
     });
 
     this.formData = this.formBuilder.group({
       gallery: gallery,
-
     });
-
   }
 
   get gallery(): FormArray {
-    return this.formData.get('gallery.pictures') as FormArray
+    return this.formData.get('gallery.pictures') as FormArray;
   }
 
   addFilesToGallery(addedFiles: File[]) {
     const controlArray = this.gallery;
 
     addedFiles.forEach((file: File) => {
-      controlArray.push(this.formBuilder.group({
-        file: file
-      }))
-    })
+      controlArray.push(
+        this.formBuilder.group({
+          file: file,
+        })
+      );
+    });
   }
 
   // select picture from local. can select multiple pictures
   onSelect(event: any) {
     console.log(event);
     this.files.push(...event.addedFiles);
-    this.addFilesToGallery(event.addedFiles)
+    this.addFilesToGallery(event.addedFiles);
   }
 
   // remove picture from the gallery section.
@@ -72,12 +73,12 @@ export class FormTestingComponent implements OnInit {
   }
 
   onSubmit() {
-    const url = 'http://localhost:3001/photos/upload';
+    const url = 'http://localhost:3001/listing/test/listing';
 
     const formData = new FormData();
 
     for (const file of this.files) {
-      formData.append('gallery.pictures', file);
+      formData.append('file', file);
     }
 
     if (this.formData.valid) {
@@ -86,7 +87,7 @@ export class FormTestingComponent implements OnInit {
       });
       console.log(this.formData.value);
     } else {
-      console.log('nope')
+      console.log('nope');
     }
   }
 }
